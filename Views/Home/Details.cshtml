@@ -1,0 +1,135 @@
+@model SCPFoundation.Models.SCPItem
+
+@{
+    ViewData["Title"] = Model.Title;
+    string code = RandomStringGenerator.Generate(6);
+}
+
+
+<div class="container" style="margin-bottom: 200px;">
+    <div class="d-flex align-items-center justify-content-between" style="margin-bottom: 100px;">
+        <div>
+            <a id="terminal-root" asp-action="Index" class="px-3 py-2 text-decoration-none fw-normal inter fs-5">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> TERMINAL ROOT</a>
+        </div>
+        <div class="fs-6 jb-mono text-grey text-end">
+            <div>DOC_ID: @code-@Model.Id</div>
+            <div>DATE: @DateTime.Now.ToShortDateString()</div>
+        </div>
+    </div>
+    <div class="row gx-5 gy-5">
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <hr class="text-danger line-before me-2" style="width:50px;">
+                <h5 class="scp-id fs-5 text-danger jb-mono" style="margin: 0;">CLASSIFIED DOCUMENTATION</h5>
+            </div>
+            <h1 class="jb-mono fw-bolder text-white" style="font-size:100px;">@Model.Id</h1>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="text-grey fw-bold inter fs-1">"@Model.Title"</div>
+
+                <div class="scp-class px-4 py-2 inter fw-bolder px-3 py-1 text-uppercase @Model.Class"
+                    style="transform: rotate(-5deg)">
+                    @Model.Class
+                </div>
+            </div>
+
+            <hr class="text-danger mt-5 mb-5">
+
+            <div class="text-grey fs-5 jb-mono mb-2 fw-bold">SECTION_01</div>
+            <div class="text-white fs-4 fw-bold inter ">SPECIAL CONTAINMENT PROCEDURES</div>
+
+            <hr class="text-grey mb-4">
+
+            <div class="procedure text-white inter px-4 py-4 mb-5">@Model.Procedure</div>
+
+            <div class="text-grey fs-5 jb-mono mb-2 fw-bold">SECTION_02</div>
+            <div class="text-white fs-4 fw-bold inter ">DESCRIPTION</div>
+
+            <hr class="text-grey mb-4">
+
+            <div class="text-white inter px-2">@Model.Description</div>
+
+            <hr class="text-grey mb-4" style="margin-top: 70px; height: 2px;">
+
+            <div class="text-grey fw-bold jb-mono fs-5 mb-2">
+                ADDENDUM @Model.Id.Replace("SCP-", "")-REC.01
+            </div>
+
+            <div class="text-grey lb-serif fst-italic px-5 py-5 addendum fs-5" style="line-height: 30px;">
+                The recovery of was initiated on██/██/20██ by Agent ███████. The subject demonstrated a high affinity
+                for
+                biological resequencing and immediately caused the <span class="text-danger">TERMINATION</span> of all
+                D-Class
+                personnel present during initial
+                breach. Further study has been restricted to <br><span
+                    class="text-white text-decoration-underline">AUTHORIZED
+                    RESEARCH PERSONNEL
+                    ONLY.</span>
+                <div class="expunged text-center inter fst-normal fw-bolder px-3 py-2 fs-4">EXPUNGED</div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="sticky-top">
+                <div class="card detail-card mb-5">
+                    @{
+                        string placeholder = Url.Content("~/assets/placeholder.jpg");
+                    }
+                    <img class="card-img-top" src="@(Model.Image ?? placeholder)" alt="@(Model.Caption ?? Model.Title)">
+
+                    <div class="text-grey ref-frm px-2 py-1 jb-mono fs-6 fw-bold">
+                        REF_FRM: @Model.Id.Replace("SCP-", "")_VOL1
+                    </div>
+                    <div class="text-grey text-success sig-lck px-2 py-1 jb-mono fs-6 fw-bold">
+                        SIG_LCK: VERIFIED
+                    </div>
+
+                    <div class="card-body px-4">
+                        <div class="mt-2 text-center lb-serif text-grey fst-italic fw-bold fs-6">"@(Model.Caption ??
+                                                        Model.Title)"
+                        </div>
+
+                        <hr class="text-grey mt-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between jb-mono fs-5 mb-2">
+                            <div class="text-grey text-start">PRIMARY SITE:</div>
+                            <div class="text-white text-end">SITE-19 ARCHIVE</div>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between jb-mono fs-5 mb-2">
+                            <div class="text-grey text-start">CLEARANCE:</div>
+                            <div class="text-danger text-end">LEVEL 4+</div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between jb-mono fs-5 mb-2">
+                            <div class="text-grey text-start">CONTAINMENT:</div>
+                            <div class="text-success text-end">ACTIVE STABLE</div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between jb-mono fs-5 mb-2">
+                            <div class="text-grey text-start">COGNITO:</div>
+                            <div class="text-grey text-end">NEGLIGIBLE</div>
+                        </div>
+
+                        <hr class="text-grey mt-4 mb-4">
+
+                        <div class="jb-mono text-center fs-6 text-grey">
+                            Warning: Subject data is persistent. Memory corruption detected in peripheral archives.
+                            Confirm
+                            all protocols.
+                        </div>
+                        <div class="text-center jb-mono fs-6 fw-bolder mb-5">_ _ _ _ _</div>
+                    </div>
+                </div>
+
+                <div class="card detail-card">
+                    <div
+                        class="fs-5 card-body d-flex flex-column align-items-center px-4 py-5 lb-serif fst-italic text-grey">
+                        <img class="logo-img-darker" src="~/assets/foundation-dark.svg"
+                            style="width: 60px; height: auto;">
+                        <div class="text-center mt-3">"WE DIE IN THE DARK SO YOU CAN LIVE IN THE LIGHT."</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
