@@ -19,11 +19,13 @@ public class HomeController : Controller
 
         var json = System.IO.File.ReadAllText(jsonPath);
         _scpLibrary = JsonSerializer.Deserialize<Dictionary<string, SCPItem>>(json);
+
+        foreach (var scp in _scpLibrary.Values) { }
     }
 
     public IActionResult Index()
     {
-        return View();
+        return View(_scpLibrary);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

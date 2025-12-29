@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SCPFoundation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+028975a630ae156a194190fe4bf5e3f00884345a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3314f9781635ca71e11a0c6d4562e7bf7b579103")]
 [assembly: System.Reflection.AssemblyProductAttribute("SCPFoundation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SCPFoundation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -199,3 +199,49 @@ body {
 #filter-container select:focus {
     border: 2px solid red;
 }
+
+.card {
+    background-color: #0e0f0f;
+    border-radius: 10px;
+    border: 2px solid rgb(255 255 255 / 0.1);
+}
+
+.card img {
+    height: 175px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.file-num {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 80%);
+    border: 2px solid rgb(255 255 255 / 0.4);
+    border-radius: 10px;
+    right: 15px;
+    top: 15px;
+}
+
+.safe,
+.euclid,
+.keter {
+    border-radius: 10px;
+    letter-spacing: 3px;
+}
+
+.safe {
+    color: var(--bs-success);
+    background-color: rgba(var(--bs-success-rgb), 10%);
+    border: 1px solid var(--bs-success);
+}
+
+.euclid {
+    color: var(--bs-warning);
+    background-color: rgba(var(--bs-warning-rgb), 10%);
+    border: 1px solid var(--bs-warning);
+}
+
+.keter {
+    color: var(--bs-danger);
+    background-color: rgba(var(--bs-danger-rgb), 10%);
+    border: 1px solid var(--bs-danger);
+}
