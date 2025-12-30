@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +9,7 @@ namespace SCPFoundation.Controllers;
 public class HomeController : Controller
 {
     private readonly IWebHostEnvironment _env;
-    private readonly Dictionary<string, SCPItem>? _scpLibrary;
+    private readonly SortedDictionary<string, SCPItem>? _scpLibrary;
 
     public HomeController(IWebHostEnvironment env)
     {
@@ -18,7 +19,7 @@ public class HomeController : Controller
         string jsonPath = Path.Combine(projectRoot, "Data", "scp_data.json");
 
         var json = System.IO.File.ReadAllText(jsonPath);
-        _scpLibrary = JsonSerializer.Deserialize<Dictionary<string, SCPItem>>(json);
+        _scpLibrary = JsonSerializer.Deserialize<SortedDictionary<string, SCPItem>>(json);
     }
 
     public IActionResult Index()
